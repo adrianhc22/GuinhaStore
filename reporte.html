@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Reporte - Proyecto Final GuinhaStore</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 45px;
+            color: #1f2937;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        h1 {
+            color: #0f172a;
+            font-size: 34px;
+        }
+
+        h2 {
+            color: #1e3a8a;
+            border-bottom: 3px solid #1e3a8a;
+            padding-bottom: 6px;
+            margin-top: 40px;
+            font-size: 22px;
+        }
+
+        h3 {
+            color: #0f172a;
+            margin-top: 25px;
+            font-size: 17px;
+        }
+
+        .portada {
+            text-align: center;
+            padding: 90px 20px;
+            border: 2px solid #0f172a;
+            border-radius: 12px;
+            margin-bottom: 40px;
+        }
+
+        .portada h1 {
+            font-size: 46px;
+            margin-bottom: 10px;
+        }
+
+        .portada .sub {
+            font-size: 20px;
+            color: #475569;
+        }
+
+        .portada .datos {
+            margin-top: 45px;
+            font-size: 16px;
+        }
+
+        figure {
+            margin: 25px 0;
+            text-align: center;
+            page-break-inside: avoid;
+        }
+
+        figure img {
+            max-width: 100%;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+        }
+
+        figcaption {
+            margin-top: 8px;
+            font-size: 12px;
+            color: #64748b;
+            font-style: italic;
+        }
+
+        pre {
+            background: #f1f5f9;
+            border-left: 4px solid #1e3a8a;
+            padding: 14px;
+            overflow-x: auto;
+            font-size: 11px;
+            line-height: 1.4;
+            white-space: pre-wrap;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 15px 0;
+            font-size: 13px;
+        }
+
+        th,
+        td {
+            border: 1px solid #cbd5e1;
+            padding: 7px 10px;
+            text-align: left;
+        }
+
+        th {
+            background: #1e3a8a;
+            color: #fff;
+        }
+
+        code {
+            background: #f1f5f9;
+            padding: 2px 5px;
+            border-radius: 4px;
+        }
+
+        ul {
+            padding-left: 22px;
+        }
+
+        .page-break {
+            page-break-before: always;
+        }
+
+        .pie {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 12px;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ============ PORTADA ============ -->
+    <div class="portada">
+        <h1>GuinhaStore</h1>
+        <div class="sub">Tienda en línea de videojuegos de PlayStation 5</div>
+        <div class="datos">
+            <p><strong>Proyecto Final</strong><br>
+                Programación para Internet (SIS3410)</p>
+            <p><strong>Alumno:</strong> Adrian Huelga Correa</p>
+            <p><strong>Universidad Anáhuac México Norte</strong></p>
+        </div>
+    </div>
+
+    <!-- ============ INTRODUCCIÓN ============ -->
+    <h2>1. Introducción</h2>
+    <p>
+        GuinhaStore es una tienda en línea dedicada a la venta de videojuegos de PlayStation 5.
+        El sistema permite a los visitantes explorar un catálogo de 32 juegos, crear una cuenta,
+        iniciar sesión, armar un carrito de compras y finalizar la compra. Además, cuenta con una
+        página de administración desde la cual se puede consultar el inventario, agregar y modificar
+        productos y revisar el historial de compras de los clientes.
+    </p>
+    <p>
+        El proyecto se desarrolló con <strong>PHP 8.2</strong>, <strong>MySQL/MariaDB</strong> y
+        <strong>Bootstrap 5</strong>, ejecutándose completamente dentro de <strong>Docker</strong>
+        para facilitar su instalación y ejecución.
+    </p>
+
+    <!-- ============ OBJETIVOS ============ -->
+    <h2>2. Objetivos</h2>
+    <h3>Objetivo general</h3>
+    <p>
+        Desarrollar una tienda en línea funcional que integre una base de datos relacional, lógica
+        del lado del servidor con PHP y una interfaz responsiva construida con Bootstrap 5.
+    </p>
+    <h3>Objetivos específicos</h3>
+    <ul>
+        <li>Diseñar y construir una base de datos relacional con las tablas de productos, usuarios,
+            carrito e historial de compras.</li>
+        <li>Implementar un sistema de cuentas con inicio y cierre de sesión persistente.</li>
+        <li>Desarrollar un catálogo de al menos 30 productos con imagen, descripción y precio.</li>
+        <li>Implementar un carrito de compras que permita agregar, modificar y eliminar productos.</li>
+        <li>Automatizar la venta: guardar el historial, actualizar el inventario y vaciar el carrito.</li>
+        <li>Crear una página de administración para gestionar productos y consultar el historial.</li>
+        <li>Lograr un sitio responsivo en todas sus páginas y elementos.</li>
+    </ul>
+
+    <div class="page-break"></div>
+
+    <!-- ============ DIAGRAMA ============ -->
+    <h2>3. Diagrama de la base de datos</h2>
+    <p>
+        El siguiente diagrama Entidad-Relación fue generado con phpMyAdmin y muestra las cuatro
+        tablas del sistema y sus relaciones:
+    </p>
+    <figure>
+        <img src="diagrama_er.png" alt="Diagrama Entidad-Relación">
+        <figcaption>Figura 1. Diagrama Entidad-Relación de la base de datos guinahstore.</figcaption>
+    </figure>
+
+    <!-- ============ SQL ============ -->
+    <h2>4. Código SQL</h2>
+    <pre>
+CREATE TABLE productos (
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    nombre VARCHAR(150) NOT NULL,
+    descripcion TEXT,
+    foto MEDIUMBLOB,
+    precio DECIMAL(10,2) NOT NULL DEFAULT 0,
+    stock INT(11) NOT NULL DEFAULT 0,
+    fabricante VARCHAR(100),
+    origen VARCHAR(100),
+    PRIMARY KEY (id)
+) ENGINE=InnoDB;
+
+CREATE TABLE usuarios (
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    nombre VARCHAR(100) NOT NULL,
+    correo VARCHAR(150) NOT NULL,
+    contrasena VARCHAR(255) NOT NULL,
+    fecha_nacimiento DATE,
+    num_tarjeta VARCHAR(20),
+    direccion_postal VARCHAR(200),
+    rol ENUM('cliente', 'admin') NOT NULL DEFAULT 'cliente',
+    PRIMARY KEY (id),
+    UNIQUE KEY uq_correo (correo)
+) ENGINE=InnoDB;
+
+CREATE TABLE carrito (
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    id_usuario INT(11) NOT NULL,
+    id_producto INT(11) NOT NULL,
+    cantidad INT(11) NOT NULL DEFAULT 1,
+    PRIMARY KEY (id),
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_producto) REFERENCES productos(id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+
+CREATE TABLE historial (
+    id INT(11) NOT NULL AUTO_INCREMENT,
+    id_orden INT(11) NOT NULL,
+    id_usuario INT(11) NOT NULL,
+    id_producto INT(11) NOT NULL,
+    cantidad INT(11) NOT NULL DEFAULT 1,
+    precio_unitario DECIMAL(10,2) NOT NULL DEFAULT 0,
+    fecha DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    FOREIGN KEY (id_usuario) REFERENCES usuarios(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_producto) REFERENCES productos(id) ON DELETE CASCADE
+) ENGINE=InnoDB;
+    </pre>
+
+    <div class="page-break"></div>
+
+    <!-- ============ PÁGINAS ============ -->
+    <h2>5. Descripción de las principales páginas</h2>
+
+    <h3>5.1 Catálogo de productos (index.php)</h3>
+    <p>
+        Página principal. Muestra los 32 juegos en una cuadrícula responsiva de tarjetas con su
+        portada, descripción, precio y disponibilidad. Cada tarjeta permite ver el detalle o
+        agregar el juego al carrito.
+    </p>
+    <figure>
+        <img src="cap_catalogo.png" alt="Catálogo">
+        <figcaption>Figura 2. Catálogo de productos.</figcaption>
+    </figure>
+
+    <h3>5.2 Carrito de compras (carrito.php)</h3>
+    <p>
+        Muestra los juegos agregados, permite cambiar la cantidad o eliminar artículos y calcular
+        el total. El botón <strong>Finalizar compra</strong> registra la venta.
+    </p>
+    <figure>
+        <img src="cap_carrito.png" alt="Carrito">
+        <figcaption>Figura 3. Carrito de compras antes de finalizar la compra.</figcaption>
+    </figure>
+
+    <div class="page-break"></div>
+
+    <h3>5.3 Página de administración (admin.php)</h3>
+    <p>
+        Accesible solo para el usuario administrador. Presenta un reporte del inventario con
+        indicadores (productos, piezas y valor total) y la tabla de productos con opción de
+        modificarlos.
+    </p>
+    <figure>
+        <img src="cap_admin.png" alt="Administración">
+        <figcaption>Figura 4. Panel de administración con el inventario.</figcaption>
+    </figure>
+
+    <h3>5.4 Historial de compras (admin.php?seccion=historial)</h3>
+    <figure>
+        <img src="cap_historial.png" alt="Historial">
+        <figcaption>Figura 5. Historial de compras visto desde la administración.</figcaption>
+    </figure>
+
+    <div class="page-break"></div>
+
+    <h3>5.5 Perfil del usuario (perfil.php)</h3>
+    <p>
+        Muestra la información personal del usuario y su historial de compras agrupado por orden.
+    </p>
+    <figure>
+        <img src="cap_perfil.png" alt="Perfil">
+        <figcaption>Figura 6. Perfil del usuario con su historial de compras.</figcaption>
+    </figure>
+
+    <!-- ============ GIT ============ -->
+    <h2>6. Repositorio Git</h2>
+    <p>
+        El control de versiones del proyecto se realizó con Git y se encuentra publicado en GitHub:
+    </p>
+    <p><strong>https://github.com/adrianhc22/GuinhaStore</strong></p>
+
+    <!-- ============ CONCLUSIONES ============ -->
+    <h2>7. Conclusiones</h2>
+    <ul>
+        <li>
+            El proyecto permitió integrar en un solo sistema los temas vistos durante el curso:
+            HTML, CSS, JavaScript, PHP, bases de datos relacionales y el framework Bootstrap.
+        </li>
+        <li>
+            La base de datos relacional resultó fundamental para mantener la coherencia entre el
+            inventario, el carrito y el historial de compras: al finalizar una compra el sistema
+            actualiza las tres tablas en una sola operación.
+        </li>
+        <li>
+            Docker facilitó la ejecución del sistema completo (PHP + MariaDB) sin necesidad de
+            instalar cada componente por separado en la computadora.
+        </li>
+        <li>
+            El uso de Bootstrap permitió tener una interfaz responsiva y consistente en todas las
+            páginas sin desarrollo de CSS adicional significativo.
+        </li>
+        <li>
+            Como mejora futura se podrían agregar categorías de productos, búsqueda, paginación del
+            catálogo y un sistema de reseñas de los juegos.
+        </li>
+    </ul>
+
+    <p class="pie">GuinhaStore · Proyecto Final · Adrian Huelga Correa</p>
+
+</body>
+
+</html>
