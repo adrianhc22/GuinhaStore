@@ -1,0 +1,42 @@
+<?php
+// ============================================================
+// datos_juegos.php - Catálogo inicial de GuinhaStore (32 juegos PS5)
+// ============================================================
+
+function datosJuegos()
+{
+    return array(
+        array('nombre' => "Marvel's Spider-Man 2", 'descripcion' => "Peter Parker y Miles Morales se unen para enfrentar a Venom en la aventura más grande de Spider-Man.", 'precio' => 1299.00, 'stock' => 15, 'fabricante' => "Insomniac Games", 'origen' => "Estados Unidos", 'foto' => "01"),
+        array('nombre' => "God of War Ragnarök", 'descripcion' => "Kratos y Atreus recorren los nueve reinos en la conclusión de la saga nórdica.", 'precio' => 1399.00, 'stock' => 12, 'fabricante' => "Santa Monica Studio", 'origen' => "Estados Unidos", 'foto' => "02"),
+        array('nombre' => "Horizon Forbidden West", 'descripcion' => "Aloy explora tierras salvajes llenas de máquinas para salvar el planeta.", 'precio' => 1199.00, 'stock' => 18, 'fabricante' => "Guerrilla Games", 'origen' => "Países Bajos", 'foto' => "03"),
+        array('nombre' => "The Last of Us Part I", 'descripcion' => "Remake completo de la historia de Joel y Ellie en un mundo post-apocalíptico.", 'precio' => 1099.00, 'stock' => 10, 'fabricante' => "Naughty Dog", 'origen' => "Estados Unidos", 'foto' => "04"),
+        array('nombre' => "Ghost of Tsushima Director's Cut", 'descripcion' => "Un samurái defiende la isla de Tsushima de la invasión mongola.", 'precio' => 1199.00, 'stock' => 14, 'fabricante' => "Sucker Punch", 'origen' => "Estados Unidos", 'foto' => "05"),
+        array('nombre' => "Gran Turismo 7", 'descripcion' => "El simulador de carreras definitivo con cientos de autos y circuitos.", 'precio' => 999.00, 'stock' => 20, 'fabricante' => "Polyphony Digital", 'origen' => "Japón", 'foto' => "06"),
+        array('nombre' => "Ratchet & Clank: Rift Apart", 'descripcion' => "Aventura de plataformas con saltos entre dimensiones gracias al SSD de PS5.", 'precio' => 1099.00, 'stock' => 16, 'fabricante' => "Insomniac Games", 'origen' => "Estados Unidos", 'foto' => "07"),
+        array('nombre' => "Demon's Souls", 'descripcion' => "Remake del clásico de FromSoftware con gráficos de nueva generación.", 'precio' => 1199.00, 'stock' => 8, 'fabricante' => "Bluepoint Games", 'origen' => "Estados Unidos", 'foto' => "08"),
+        array('nombre' => "Returnal", 'descripcion' => "Roguelike de ciencia ficción en un planeta hostil que se reinicia en cada muerte.", 'precio' => 1199.00, 'stock' => 9, 'fabricante' => "Housemarque", 'origen' => "Finlandia", 'foto' => "09"),
+        array('nombre' => "Uncharted: Legacy of Thieves", 'descripcion' => "Colección con Uncharted 4 y Lost Legacy remasterizados para PS5.", 'precio' => 999.00, 'stock' => 11, 'fabricante' => "Naughty Dog", 'origen' => "Estados Unidos", 'foto' => "10"),
+        array('nombre' => "Sackboy: A Big Adventure", 'descripcion' => "Plataformas coloridas y cooperativas con el personaje de LittleBigPlanet.", 'precio' => 899.00, 'stock' => 13, 'fabricante' => "Sumo Digital", 'origen' => "Reino Unido", 'foto' => "11"),
+        array('nombre' => "Astro's Playroom", 'descripcion' => "Juego que demuestra todas las funciones del control DualSense de PS5.", 'precio' => 499.00, 'stock' => 25, 'fabricante' => "Team Asobi", 'origen' => "Japón", 'foto' => "12"),
+        array('nombre' => "Elden Ring", 'descripcion' => "RPG de mundo abierto creado por FromSoftware y George R. R. Martin.", 'precio' => 1299.00, 'stock' => 17, 'fabricante' => "FromSoftware", 'origen' => "Japón", 'foto' => "13"),
+        array('nombre' => "Hogwarts Legacy", 'descripcion' => "Explora el mundo mágico de Harry Potter antes de los eventos de los libros.", 'precio' => 1199.00, 'stock' => 15, 'fabricante' => "Avalanche Software", 'origen' => "Estados Unidos", 'foto' => "14"),
+        array('nombre' => "Resident Evil 4 Remake", 'descripcion' => "Remake del clásico de terror y acción protagonizado por Leon S. Kennedy.", 'precio' => 1299.00, 'stock' => 12, 'fabricante' => "Capcom", 'origen' => "Japón", 'foto' => "15"),
+        array('nombre' => "Final Fantasy XVI", 'descripcion' => "RPG de acción con combates espectaculares y una historia épica.", 'precio' => 1399.00, 'stock' => 10, 'fabricante' => "Square Enix", 'origen' => "Japón", 'foto' => "16"),
+        array('nombre' => "Final Fantasy VII Rebirth", 'descripcion' => "Segunda parte del remake de Final Fantasy VII.", 'precio' => 1399.00, 'stock' => 9, 'fabricante' => "Square Enix", 'origen' => "Japón", 'foto' => "17"),
+        array('nombre' => "Persona 5 Royal", 'descripcion' => "RPG por turnos con estilo único sobre un grupo de estudiantes justicieros.", 'precio' => 999.00, 'stock' => 14, 'fabricante' => "Atlus", 'origen' => "Japón", 'foto' => "18"),
+        array('nombre' => "Cyberpunk 2077", 'descripcion' => "RPG de mundo abierto en la megalópolis futurista de Night City.", 'precio' => 1099.00, 'stock' => 16, 'fabricante' => "CD Projekt Red", 'origen' => "Polonia", 'foto' => "19"),
+        array('nombre' => "Red Dead Redemption 2", 'descripcion' => "Western de mundo abierto con la historia de la banda de Van der Linde.", 'precio' => 999.00, 'stock' => 11, 'fabricante' => "Rockstar Games", 'origen' => "Estados Unidos", 'foto' => "20"),
+        array('nombre' => "Grand Theft Auto V", 'descripcion' => "El clásico de mundo abierto con tres protagonistas en Los Santos.", 'precio' => 799.00, 'stock' => 20, 'fabricante' => "Rockstar Games", 'origen' => "Estados Unidos", 'foto' => "21"),
+        array('nombre' => "Call of Duty: Modern Warfare III", 'descripcion' => "Shooter de guerra moderna con campaña, multijugador y zombies.", 'precio' => 1399.00, 'stock' => 18, 'fabricante' => "Activision", 'origen' => "Estados Unidos", 'foto' => "22"),
+        array('nombre' => "EA Sports FC 24", 'descripcion' => "El simulador de fútbol más popular, con licencias oficiales.", 'precio' => 1199.00, 'stock' => 22, 'fabricante' => "EA Sports", 'origen' => "Estados Unidos", 'foto' => "23"),
+        array('nombre' => "NBA 2K24", 'descripcion' => "Simulador de baloncesto con la NBA completa y modo carrera.", 'precio' => 1199.00, 'stock' => 19, 'fabricante' => "Visual Concepts", 'origen' => "Estados Unidos", 'foto' => "24"),
+        array('nombre' => "Mortal Kombat 1", 'descripcion' => "Reinicio de la saga de pelea con fatalities brutales.", 'precio' => 1299.00, 'stock' => 13, 'fabricante' => "NetherRealm Studios", 'origen' => "Estados Unidos", 'foto' => "25"),
+        array('nombre' => "Street Fighter 6", 'descripcion' => "Nueva entrega de la saga de lucha con modo mundo abierto.", 'precio' => 1299.00, 'stock' => 15, 'fabricante' => "Capcom", 'origen' => "Japón", 'foto' => "26"),
+        array('nombre' => "Tekken 8", 'descripcion' => "El torneo de hierro regresa con gráficos de nueva generación.", 'precio' => 1299.00, 'stock' => 12, 'fabricante' => "Bandai Namco", 'origen' => "Japón", 'foto' => "27"),
+        array('nombre' => "Assassin's Creed Mirage", 'descripcion' => "Regreso a las raíces de la saga en la Bagdad del siglo IX.", 'precio' => 999.00, 'stock' => 16, 'fabricante' => "Ubisoft", 'origen' => "Francia", 'foto' => "28"),
+        array('nombre' => "Death Stranding Director's Cut", 'descripcion' => "La obra de Hideo Kojima sobre conectar un mundo fragmentado.", 'precio' => 899.00, 'stock' => 10, 'fabricante' => "Kojima Productions", 'origen' => "Japón", 'foto' => "29"),
+        array('nombre' => "Stray", 'descripcion' => "Encarna a un gato en una ciudad ciberpunk habitada por robots.", 'precio' => 599.00, 'stock' => 21, 'fabricante' => "BlueTwelve Studio", 'origen' => "Francia", 'foto' => "30"),
+        array('nombre' => "Ghostwire: Tokyo", 'descripcion' => "Acción sobrenatural en un Tokio invadido por espíritus.", 'precio' => 799.00, 'stock' => 14, 'fabricante' => "Tango Gameworks", 'origen' => "Japón", 'foto' => "31"),
+        array('nombre' => "It Takes Two", 'descripcion' => "Aventura cooperativa para dos jugadores sobre una pareja en crisis.", 'precio' => 899.00, 'stock' => 17, 'fabricante' => "Hazelight Studios", 'origen' => "Suecia", 'foto' => "32")
+    );
+}
