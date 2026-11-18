@@ -1,0 +1,6 @@
+# Datos de la base de datos (no se suben)
+db_data/
+
+# Sistema
+.DS_Store
+*.log

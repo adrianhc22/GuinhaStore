@@ -1,0 +1,38 @@
+services:
+  # ---------- Servidor web con PHP ----------
+  web:
+    build: .
+    container_name: tienda_web
+    ports:
+      - "8080:80"
+    volumes:
+      - ./html:/var/www/html
+      - ./covers:/var/www/covers:ro
+    depends_on:
+      - db
+
+  # ---------- Base de datos MariaDB ----------
+  db:
+    image: mariadb:11
+    container_name: tienda_db
+    environment:
+      MARIADB_ROOT_PASSWORD: root_password
+      MARIADB_DATABASE: guinahstore
+      MARIADB_USER: usuario
+      MARIADB_PASSWORD: "123456"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./db_data:/var/lib/mysql
+
+  # ---------- phpMyAdmin (para el diagrama E-R) ----------
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: tienda_phpmyadmin
+    ports:
+      - "8081:80"
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: root_password
+    depends_on:
+      - db
