@@ -15,15 +15,25 @@ $paginaActiva = $paginaActiva ?? "";
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?php echo isset($titulo) ? htmlspecialchars($titulo) . " | " : ""; ?>GuinhaStore</title>
 
+    <!-- Tipografías -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;800;900&family=Rajdhani:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Tema personalizado de GuinhaStore -->
+    <link rel="stylesheet" href="estilos.css">
 </head>
 
-<body class="bg-light">
+<body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.php">GuinhaStore</a>
+            <a class="navbar-brand" href="index.php">GUINHASTORE</a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#menuPrincipal" aria-controls="menuPrincipal"
@@ -32,7 +42,7 @@ $paginaActiva = $paginaActiva ?? "";
             </button>
 
             <div class="collapse navbar-collapse" id="menuPrincipal">
-                <ul class="navbar-nav me-auto">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link <?php echo $paginaActiva === 'catalogo' ? 'active' : ''; ?>"
                             href="index.php">Catálogo</a>
@@ -60,22 +70,20 @@ $paginaActiva = $paginaActiva ?? "";
                     <?php } ?>
                 </ul>
 
-                <ul class="navbar-nav">
+                <ul class="navbar-nav align-items-lg-center">
                     <?php if ($usuario) { ?>
                         <li class="nav-item">
-                            <span class="navbar-text me-2">Hola, <?php echo htmlspecialchars($usuario["nombre"]); ?></span>
+                            <span class="navbar-text me-3"><?php echo htmlspecialchars($usuario["nombre"]); ?></span>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="logout.php">Salir</a>
+                            <a class="btn btn-outline-secondary btn-sm" href="logout.php">Salir</a>
                         </li>
                     <?php } else { ?>
-                        <li class="nav-item">
-                            <a class="nav-link <?php echo $paginaActiva === 'login' ? 'active' : ''; ?>"
-                                href="login.php">Iniciar sesión</a>
+                        <li class="nav-item me-2">
+                            <a class="btn btn-outline-secondary btn-sm" href="login.php">Iniciar sesión</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link <?php echo $paginaActiva === 'registro' ? 'active' : ''; ?>"
-                                href="registro.php">Crear cuenta</a>
+                            <a class="btn btn-primary btn-sm" href="registro.php">Crear cuenta</a>
                         </li>
                     <?php } ?>
                 </ul>

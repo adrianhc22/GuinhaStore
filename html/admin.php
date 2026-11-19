@@ -196,7 +196,7 @@ include "header.php";
 
     <div class="row g-3 mb-4">
         <div class="col-md-4">
-            <div class="card text-white bg-primary">
+            <div class="stat-card stat-azul text-white">
                 <div class="card-body">
                     <div class="small">Productos registrados</div>
                     <div class="fs-3 fw-bold"><?php echo count($productos); ?></div>
@@ -204,7 +204,7 @@ include "header.php";
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card text-white bg-success">
+            <div class="stat-card stat-verde text-white">
                 <div class="card-body">
                     <div class="small">Piezas en inventario</div>
                     <div class="fs-3 fw-bold"><?php echo $totalStock; ?></div>
@@ -212,7 +212,7 @@ include "header.php";
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card text-white bg-dark">
+            <div class="stat-card stat-oscuro text-white">
                 <div class="card-body">
                     <div class="small">Valor del inventario</div>
                     <div class="fs-3 fw-bold"><?php echo precio($valorTotal); ?></div>
