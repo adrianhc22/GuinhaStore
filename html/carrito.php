@@ -170,7 +170,7 @@ if ($accion === "finalizar") {
 
         mysqli_commit($con);
 
-        ir("perfil.php?compra=" . $idOrden);
+        ir("gracias.php?orden=" . $idOrden);
     }
 }
 

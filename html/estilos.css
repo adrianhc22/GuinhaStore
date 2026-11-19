@@ -723,3 +723,88 @@ footer,
         font-size: 1.15rem;
     }
 }
+
+/* ============================================================
+   Buscador y filtros del catálogo
+   ============================================================ */
+
+.barra-filtros {
+    background: linear-gradient(180deg, var(--card), var(--bg-2));
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 20px 22px;
+    margin: 30px 0 10px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, .45);
+}
+
+/* ============================================================
+   Contador de artículos en el carrito
+   ============================================================ */
+
+.badge-contador {
+    display: inline-block;
+    min-width: 20px;
+    padding: 1px 6px;
+    margin-left: 6px;
+    border-radius: 999px;
+    background: var(--grad);
+    color: #fff;
+    font-size: .68rem;
+    font-weight: 800;
+    line-height: 1.5;
+    text-align: center;
+    vertical-align: middle;
+    box-shadow: 0 0 12px rgba(56, 189, 248, .6);
+}
+
+/* ============================================================
+   Pantalla de compra exitosa
+   ============================================================ */
+
+.gracias {
+    text-align: center;
+    padding: 60px 20px;
+    border-radius: 26px;
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(600px 300px at 50% 0%, rgba(34, 197, 94, .18), transparent 60%),
+        linear-gradient(180deg, var(--card), var(--bg-2));
+    box-shadow: 0 25px 60px rgba(0, 0, 0, .55);
+}
+
+.gracias .icono-ok {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    margin: 0 auto 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.2rem;
+    color: #fff;
+    background: linear-gradient(135deg, #16a34a, #22c55e);
+    box-shadow: 0 0 45px rgba(34, 197, 94, .6);
+    animation: latido-ok 1.6s ease-in-out infinite;
+}
+
+@keyframes latido-ok {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.07); }
+}
+
+.confeti {
+    position: absolute;
+    top: -25px;
+    width: 9px;
+    height: 15px;
+    border-radius: 2px;
+    opacity: .9;
+    animation: caer linear infinite;
+}
+
+@keyframes caer {
+    0% { transform: translateY(-40px) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(680px) rotate(720deg); opacity: .08; }
+}

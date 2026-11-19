@@ -3,9 +3,22 @@
 // header.php - Cabecera y barra de navegación (en todas las páginas)
 // ============================================================
 require_once __DIR__ . "/auth.php";
+require_once __DIR__ . "/conexion.php";
 
 $usuario = usuarioActual();
 $paginaActiva = $paginaActiva ?? "";
+
+// Cantidad de artículos en el carrito (contador del menú)
+$articulosCarrito = 0;
+if ($usuario) {
+    $stmtCarrito = mysqli_prepare($con, "SELECT COALESCE(SUM(cantidad), 0) AS total FROM carrito WHERE id_usuario = ?");
+    mysqli_stmt_bind_param($stmtCarrito, "i", $usuario["id"]);
+    mysqli_stmt_execute($stmtCarrito);
+    $resCarrito = mysqli_stmt_get_result($stmtCarrito);
+    $filaCarrito = mysqli_fetch_assoc($resCarrito);
+    $articulosCarrito = (int) $filaCarrito["total"];
+    mysqli_stmt_close($stmtCarrito);
+}
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -59,7 +72,8 @@ $paginaActiva = $paginaActiva ?? "";
                         </li>
                         <li class="nav-item">
                             <a class="nav-link <?php echo $paginaActiva === 'carrito' ? 'active' : ''; ?>"
-                                href="carrito.php">Carrito</a>
+                                href="carrito.php">Carrito<?php if ($articulosCarrito > 0) { ?><span
+                                    class="badge-contador"><?php echo $articulosCarrito; ?></span><?php } ?></a>
                         </li>
                         <?php if ($usuario["rol"] === "admin") { ?>
                             <li class="nav-item">

@@ -1,12 +1,15 @@
 <?php
 // ============================================================
-// conexion.php - Conexión a la base de datos
+// conexion.php - Conexión a la base de datos (reutilizable)
 // ============================================================
 
-$con = mysqli_connect("db", "usuario", "123456", "guinahstore");
+if (!isset($con) || !($con instanceof mysqli)) {
 
-if (mysqli_connect_errno()) {
-    die("Error al conectar con la base de datos: " . mysqli_connect_error());
+    $con = mysqli_connect("db", "usuario", "123456", "guinahstore");
+
+    if (mysqli_connect_errno()) {
+        die("Error al conectar con la base de datos: " . mysqli_connect_error());
+    }
+
+    mysqli_set_charset($con, "utf8mb4");
 }
-
-mysqli_set_charset($con, "utf8mb4");
