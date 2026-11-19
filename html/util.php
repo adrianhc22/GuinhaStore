@@ -22,10 +22,13 @@ function precio($valor)
     return "$" . number_format((float) $valor, 2);
 }
 
+// Versión de los recursos: súbela cuando cambien las portadas
+define("ASSET_VERSION", "4");
+
 // URL para mostrar la portada desde la base de datos
 function imagenUrl($id)
 {
-    return "imagen.php?id=" . (int) $id;
+    return "imagen.php?id=" . (int) $id . "&v=" . ASSET_VERSION;
 }
 
 // Redirige y termina

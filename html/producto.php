@@ -26,9 +26,9 @@ if (!$p) {
 }
 ?>
 
-<a href="index.php" class="btn btn-sm btn-outline-secondary mb-4">&larr; Volver al catálogo</a>
+<a href="index.php" class="btn btn-sm btn-outline-secondary mb-5">&larr; Volver al catálogo</a>
 
-<div class="row g-5 align-items-start animar">
+<div class="row g-4 align-items-start animar">
 
     <!-- Portada -->
     <div class="col-md-5 col-lg-4">

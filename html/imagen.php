@@ -21,8 +21,18 @@ if (!$p || empty($p["foto"])) {
 $info = @getimagesizefromstring($p["foto"]);
 $mime = $info ? $info["mime"] : "image/jpeg";
 
+// ETag: cambia automáticamente cuando la foto cambia
+$etag = '"' . md5($p["foto"]) . '"';
+
 header("Content-Type: " . $mime);
-header("Cache-Control: public, max-age=86400");
+header("ETag: " . $etag);
+header("Cache-Control: no-cache, must-revalidate");
 header("Content-Length: " . strlen($p["foto"]));
+
+// Si el navegador ya tiene la versión actual, respondemos 304 (sin reenviar)
+if (isset($_SERVER["HTTP_IF_NONE_MATCH"]) && trim($_SERVER["HTTP_IF_NONE_MATCH"]) === $etag) {
+    http_response_code(304);
+    exit;
+}
 
 echo $p["foto"];
