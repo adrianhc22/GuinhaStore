@@ -11,7 +11,7 @@ Alumno: Adrian Huelga Correa
 ## Descripción
 
 GuinhaStore es una tienda en línea completa hecha con **PHP, MySQL (MariaDB) y Bootstrap 5**,
-que corre dentro de **Docker**. Permite explorar un catálogo de **32 juegos de PS5**, crear una
+que corre dentro de **Docker**. Permite explorar un catálogo de **42 juegos de PS5**, crear una
 cuenta, iniciar sesión, armar un carrito de compras y finalizar la compra, además de una página
 de administración con inventario, alta/edición de productos e historial de compras.
 
@@ -36,7 +36,7 @@ docker compose down
 ```
 
 > La primera vez tarda unos minutos (compila la imagen de PHP y descarga MariaDB).
-> La base de datos y el catálogo de 32 juegos **se crean automáticamente** al abrir la tienda.
+> La base de datos y el catálogo de 42 juegos **se crean automáticamente** al abrir la tienda.
 
 ## Usuarios de prueba
 
@@ -51,7 +51,7 @@ También puedes crear tu propia cuenta desde **Crear cuenta**.
 
 | Página | Descripción |
 |---|---|
-| `index.php` | Catálogo de los 32 juegos con portada, descripción, precio y stock |
+| `index.php` | Catálogo de los 42 juegos con portada, descripción, precio y stock |
 | `producto.php` | Ficha del juego con detalle y botón para agregar al carrito |
 | `carrito.php` | Carrito: modificar cantidad, eliminar y finalizar compra |
 | `registro.php` | Creación de cuenta nueva (todos los datos del usuario) |

@@ -17,6 +17,7 @@ CREATE TABLE productos (
     stock INT(11) NOT NULL DEFAULT 0,
     fabricante VARCHAR(100),
     origen VARCHAR(100),
+    trailer VARCHAR(30),
     PRIMARY KEY (id)
 ) ENGINE=InnoDB;
 

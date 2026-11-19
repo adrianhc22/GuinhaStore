@@ -1,13 +1,13 @@
 <?php
 // ============================================================
-// producto.php - Detalle de un juego
+// producto.php - Detalle de un juego (con trailer incrustado)
 // ============================================================
 require "conexion.php";
 require "util.php";
 
 $id = isset($_GET["id"]) ? (int) $_GET["id"] : 0;
 
-$stmt = mysqli_prepare($con, "SELECT id, nombre, descripcion, foto, precio, stock, fabricante, origen
+$stmt = mysqli_prepare($con, "SELECT id, nombre, descripcion, foto, precio, stock, fabricante, origen, trailer
                               FROM productos WHERE id = ?");
 mysqli_stmt_bind_param($stmt, "i", $id);
 mysqli_stmt_execute($stmt);
@@ -95,5 +95,21 @@ if (!$p) {
     </div>
 
 </div>
+
+<!-- ============ TRAILER ============ -->
+<?php if (!empty($p["trailer"])) { ?>
+    <section class="mt-5 animar">
+        <div class="seccion-titulo">
+            <h2>Trailer</h2>
+        </div>
+
+        <div class="ratio ratio-16x9 trailer-caja">
+            <iframe src="https://www.youtube.com/embed/<?php echo htmlspecialchars($p["trailer"]); ?>?rel=0"
+                title="Trailer de <?php echo htmlspecialchars($p["nombre"]); ?>"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
+        </div>
+    </section>
+<?php } ?>
 
 <?php include "footer.php"; ?>

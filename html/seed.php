@@ -39,8 +39,8 @@ function asegurarDatos($con)
             continue;
         }
 
-        $sql = "INSERT INTO productos (nombre, descripcion, foto, precio, stock, fabricante, origen)
-                VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO productos (nombre, descripcion, foto, precio, stock, fabricante, origen, trailer)
+                VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         $stmt = mysqli_prepare($con, $sql);
         if ($stmt === false) {
@@ -54,8 +54,9 @@ function asegurarDatos($con)
         $stock = $juego["stock"];
         $fabricante = $juego["fabricante"];
         $origen = $juego["origen"];
+        $trailer = $juego["trailer"] ?? "";
 
-        mysqli_stmt_bind_param($stmt, "ssbdiss", $nombre, $descripcion, $nulo, $precio, $stock, $fabricante, $origen);
+        mysqli_stmt_bind_param($stmt, "ssbdisss", $nombre, $descripcion, $nulo, $precio, $stock, $fabricante, $origen, $trailer);
         mysqli_stmt_send_long_data($stmt, 2, $foto);   // 3er parámetro = foto
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
