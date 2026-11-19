@@ -7,7 +7,7 @@ require "util.php";
 
 $id = isset($_GET["id"]) ? (int) $_GET["id"] : 0;
 
-$stmt = mysqli_prepare($con, "SELECT id, nombre, descripcion, foto, precio, stock, fabricante, origen, trailer
+$stmt = mysqli_prepare($con, "SELECT id, nombre, descripcion, foto, precio, stock, fabricante, origen, trailer, fecha_lanzamiento
                               FROM productos WHERE id = ?");
 mysqli_stmt_bind_param($stmt, "i", $id);
 mysqli_stmt_execute($stmt);
@@ -43,6 +43,9 @@ if (!$p) {
     <div class="col-md-7 col-lg-8">
 
         <span class="badge bg-secondary mb-3"><?php echo htmlspecialchars($p["origen"]); ?></span>
+        <?php if (!empty($p["fecha_lanzamiento"])) { ?>
+            <span class="badge bg-dark mb-3">Lanzamiento: <?php echo date("d/m/Y", strtotime($p["fecha_lanzamiento"])); ?></span>
+        <?php } ?>
 
         <h1 class="display-6 mb-2" style="color:#fff;"><?php echo htmlspecialchars($p["nombre"]); ?></h1>
 

@@ -14,7 +14,7 @@ $q = trim($_GET["q"] ?? "");
 $fab = trim($_GET["fab"] ?? "");
 $orden = $_GET["orden"] ?? "recientes";
 
-$sql = "SELECT id, nombre, descripcion, foto, precio, stock, fabricante, origen FROM productos WHERE 1=1";
+$sql = "SELECT id, nombre, descripcion, foto, precio, stock, fabricante, origen, fecha_lanzamiento FROM productos WHERE 1=1";
 $tipos = "";
 $params = array();
 
@@ -45,7 +45,7 @@ switch ($orden) {
         $sql .= " ORDER BY nombre ASC";
         break;
     default:
-        $sql .= " ORDER BY id ASC";
+        $sql .= " ORDER BY fecha_lanzamiento DESC";
 }
 
 $stmt = mysqli_prepare($con, $sql);
@@ -161,6 +161,9 @@ include "header.php";
 
                 <div class="cuerpo-juego">
                     <h3><?php echo htmlspecialchars($p["nombre"]); ?></h3>
+                    <?php if (!empty($p["fecha_lanzamiento"])) { ?>
+                        <p class="fecha-juego">&#128197; <?php echo date("d/m/Y", strtotime($p["fecha_lanzamiento"])); ?></p>
+                    <?php } ?>
                     <p class="desc"><?php echo htmlspecialchars($p["descripcion"]); ?></p>
 
                     <div class="fila-precio">

@@ -18,6 +18,7 @@ CREATE TABLE productos (
     fabricante VARCHAR(100),
     origen VARCHAR(100),
     trailer VARCHAR(30),
+    fecha_lanzamiento DATE,
     PRIMARY KEY (id)
 ) ENGINE=InnoDB;
 
